@@ -1,0 +1,22 @@
+<h2>新規投稿画面</h2>
+
+<%= form_with(model: @picture, local: true) do |form| %>
+  <% if @picture.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this <%= @picture.content %> from being saved:</h2>
+    <ul>
+    <% @picture.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <%= form.label :content %>
+  <%= form.text_field :content %>
+
+  <%= form.label :image %>
+  <%= form.file_field :image %>
+
+  <%= form.submit "投稿する" %>
+<% end %>
