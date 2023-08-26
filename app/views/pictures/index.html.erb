@@ -1,0 +1,17 @@
+<h2>投稿一覧</h2>
+
+<table>
+  <tr>
+    <th>ユーザ名</th>
+    <th>本文</th>
+    <th>画像</th>
+  </tr>
+
+  <% @pictures.each do |picture| %>
+    <tr>
+      <td><%= picture.user.name %></td>
+      <td><%= picture.content %></td>
+      <td><%= image_tag picture.image.url, :size =>'100x100' %></td>
+    </tr>
+  <% end %>
+</table>

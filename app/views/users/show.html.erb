@@ -3,4 +3,7 @@
 <% if @user.icon.present? %>
   <p>画像: <%= image_tag @user.icon.url %></p>
 <% end %>
-<%= link_to '編集', edit_user_path(@user.id) %>
+
+<%= link_to 'プロフィール編集', edit_user_path(@user.id) %>
+<%= link_to '新規投稿をする', new_picture_path %>
+<%= link_to '投稿一覧', pictures_path %>
