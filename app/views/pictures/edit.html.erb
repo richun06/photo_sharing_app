@@ -1,4 +1,4 @@
-<h2>新規投稿画面</h2>
+<h2>投稿編集画面</h2>
 
 <%= form_with(model: @picture, local: true) do |form| %>
   <% if @picture.errors.any? %>
@@ -17,7 +17,9 @@
   <%= form.text_field :content %>
 
   <%= form.label :image %>
+  <%= image_tag(@picture.image.url) %>
   <%= form.file_field :image %>
+  <%= form.hidden_field :image_cache %>
 
-  <%= form.submit "投稿する" %>
+  <%= form.submit "再投稿する" %>
 <% end %>

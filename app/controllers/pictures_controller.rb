@@ -22,6 +22,19 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
   end
 
+  def edit
+    @picture = Picture.find(params[:id])
+  end
+
+  def update
+    @picture = Picture.find(params[:id])
+    if @picture.update(picture_params)
+      redirect_to pictures_path, notice: "投稿を編集しました"
+    else
+      render :edit
+    end
+  end
+
   def picture_params
     params.require(:picture).permit(:content, :image, :user_id, :image_cache)
   end
